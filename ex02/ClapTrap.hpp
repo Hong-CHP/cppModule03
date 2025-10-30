@@ -6,7 +6,7 @@
 /*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:43:10 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/10/30 11:44:40 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:49:24 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string name;
 		int	hitPoints;
 		int	energyPoints;
@@ -29,7 +29,7 @@ class ClapTrap
 		void	beRepaired(unsigned int amount);
 		int		getHealth() {return hitPoints;};
 		int		getEnergy() {return energyPoints;};
-		~ClapTrap();
+		virtual ~ClapTrap();
 };
 
 #endif

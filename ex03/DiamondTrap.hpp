@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 17:05:19 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/10/30 11:31:39 by hporta-c         ###   ########.fr       */
+/*   Created: 2025/10/30 14:25:13 by hporta-c          #+#    #+#             */
+/*   Updated: 2025/10/30 15:19:34 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef DiamondTRAP_HPP
+# define DiamondTRAP_HPP
 
-int main()
+# include <iostream>
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
+
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-	ClapTrap a("Boule");
-	while (1)
-	{
-		if (a.getEnergy() <= 0 || a.getHealth() <= 0)
-		{
-			std::cout << "Has no energy or hit points left to attack!" << std::endl;	
-			break ;
-		}
-		a.attack("Cacathuetes");
-		a.takeDamage(2);
-		a.beRepaired(1);
-	}
-	return (0);
-}
+	private:
+		std::string name;
+	public:
+		DiamondTrap(std::string name);
+		void	attack(const std::string& target);
+		void	WhoAmI();
+		~DiamondTrap();
+};
+
+#endif

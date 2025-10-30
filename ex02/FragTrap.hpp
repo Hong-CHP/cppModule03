@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 17:05:19 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/10/30 11:31:39 by hporta-c         ###   ########.fr       */
+/*   Created: 2025/10/30 14:03:46 by hporta-c          #+#    #+#             */
+/*   Updated: 2025/10/30 14:05:02 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef FragTRAP_HPP
+# define FragTRAP_HPP
 
-int main()
+# include <iostream>
+# include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	ClapTrap a("Boule");
-	while (1)
-	{
-		if (a.getEnergy() <= 0 || a.getHealth() <= 0)
-		{
-			std::cout << "Has no energy or hit points left to attack!" << std::endl;	
-			break ;
-		}
-		a.attack("Cacathuetes");
-		a.takeDamage(2);
-		a.beRepaired(1);
-	}
-	return (0);
-}
+	public:
+		FragTrap(std::string name);
+		void	highFivesGuys(void);
+		~FragTrap();
+};
+
+#endif

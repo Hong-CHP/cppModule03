@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 17:05:19 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/10/30 11:31:39 by hporta-c         ###   ########.fr       */
+/*   Created: 2025/10/30 14:03:49 by hporta-c          #+#    #+#             */
+/*   Updated: 2025/10/30 14:07:24 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
-int main()
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
+	std::cout << "Constructor FragTrap : " << name << " called." << std::endl;
+	hitPoints = 100;
+	energyPoints = 100;
+	attackDamage = 30;
+}
+
+void	FragTrap::highFivesGuys()
 {
-	ClapTrap a("Boule");
-	while (1)
-	{
-		if (a.getEnergy() <= 0 || a.getHealth() <= 0)
-		{
-			std::cout << "Has no energy or hit points left to attack!" << std::endl;	
-			break ;
-		}
-		a.attack("Cacathuetes");
-		a.takeDamage(2);
-		a.beRepaired(1);
-	}
-	return (0);
+	std::cout << "High-fives request!!!" << std::endl;
+}
+
+FragTrap::~FragTrap()
+{
+	std::cout << "Destructor FragTrap : " << name << " called." << std::endl;
 }
